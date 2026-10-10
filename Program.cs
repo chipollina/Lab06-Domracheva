@@ -47,24 +47,24 @@
 // Console.WriteLine($" введено отрицательных чисел: {total2}");
 
 // Задание 4
-// string password;
-// do
+// bool k = false;
+// for (int i = 1; i <= 3; i++)
 // {
 //     Console.Write("Введите пароль: ");
-//     password = Console.ReadLine();
-//     for (int i = 1; i <=3 ; i++)
+//     string password = Console.ReadLine();
+//     if (password == "qwerty")
 //     {
-//         if (password == "qwerty")
-//         {
-//             Console.Write("Доступ разрешен");
-//             break;
-//         }
-//         else
-//         {
-//             Console.Write("попытки закончились");
-//         }
+//         Console.Write("Доступ разрешен");
+//         k = true;
+//         break;
 //     }
 // }
+// if (k == false)
+//     {
+//         Console.Write("попытки закончились");
+//     }
+
+
 
 //Задание 5
 // int number = Convert.ToInt32(Console.ReadLine());
@@ -97,21 +97,45 @@
 //     Console.WriteLine(i);
 // }
 
-//"Угадай число"
 
+//"Угадай число"
+bool k = false;
 int secret = 42;
-Console.Write("Введите число: ");
-int c = Convert.ToInt32(Console.ReadLine());
 for (int i = 1; i <= 5; i++)
-    if (i == secret)
+{
+    Console.Write("Введите число: ");
+    int c = Convert.ToInt32(Console.ReadLine());
+    if (c == secret)
     {
-        Console.Write("правильно");
+        Console.Write($"Победа, попыток: {i}");
+        k = true;
+        break;
     }
-    else if (i > secret)
+    else if (c > secret)
     {
-        Console.Write("меньше");
+        Console.Write("меньше, ");
     }
-    else if (i < secret)
+    else if (c < secret)
     {
-        Console.Write("больше");
+        Console.Write("больше, ");
     }
+}
+if (k == false)
+{
+    Console.Write($"Вы проиграли, число было {secret}");
+}
+
+
+// Дополнительное задание ★★★ 
+// Console.Write("Введите число: ");
+// int num = Convert.ToInt32(Console.ReadLine());
+// int a = 0;
+// int b = 0;
+// while (num > 0)
+// {
+//     a += num % 10;
+//     num /= 10;
+//     b++;
+// }
+// Console.WriteLine($"сумма цифр {a}");
+// Console.WriteLine($"количество цифр {b}");
